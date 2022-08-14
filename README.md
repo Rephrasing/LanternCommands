@@ -1,6 +1,52 @@
 # LanternCommands
 a powerful framework for Bukkit commands (1.8.8-1.19)
 
+# implementation!
+
+Maven:
+```xml
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
+
+<dependency>
+    <groupId>com.github.Rephrasing</groupId>
+    <artifactId>LanternCommands</artifactId>
+    <version>master-1bed3fe460-1</version>
+</dependency>
+```
+
+Gradle (Kotlin):
+```kt
+repositories {
+    maven {
+        url = uri("https://jitpack.io")
+    }
+}
+
+dependencies {
+    implementation("com.github.Rephrasing:LanternCommands:master-1bed3fe460-1")
+}
+
+```
+
+Gradle:
+```gradle
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+dependencies {
+        implementation 'com.github.Rephrasing:LanternCommands:master-1bed3fe460-1'
+}
+```
+
+
 # usage!
 There are two ways of implementing your own LanternCommand. Choose whichever feels comfortable to use.</p>
 However, Only one way to register them!
