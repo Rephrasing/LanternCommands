@@ -1,5 +1,5 @@
 # LanternCommands
-a powerful framework for Bukkit commands (1.8.8-1.19)
+a powerful command framework for Bukkit commands (1.8.8-1.19)
 
 # implementation!
 
