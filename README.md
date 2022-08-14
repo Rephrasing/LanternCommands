@@ -15,7 +15,7 @@ Maven:
 <dependency>
     <groupId>com.github.Rephrasing</groupId>
     <artifactId>LanternCommands</artifactId>
-    <version>1.0.0</version>
+    <version>master-1bed3fe460-1</version>
 </dependency>
 ```
 
@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.Rephrasing:LanternCommands:1.0.0")
+    implementation("com.github.Rephrasing:LanternCommands:master-1bed3fe460-1")
 }
 
 ```
@@ -42,7 +42,7 @@ allprojects {
 }
 
 dependencies {
-        implementation 'com.github.Rephrasing:LanternCommands:1.0.0'
+        implementation 'com.github.Rephrasing:LanternCommands:master-1bed3fe460-1'
 }
 ```
 
