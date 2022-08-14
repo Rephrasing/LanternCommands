@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class LanternCommandBuilder {
 
@@ -75,11 +76,11 @@ public class LanternCommandBuilder {
 
     public LanternCommandBuilder aliases(String... aliases) {
         if (this.aliases != null) {
-            List<String> found = Arrays.stream(aliases).filter(alias -> this.aliases.contains(alias)).toList();
+            List<String> found = Arrays.stream(aliases).filter(alias -> this.aliases.contains(alias)).collect(Collectors.toList());
             if (!found.isEmpty()) throw new IllegalArgumentException("Attempted to add aliases " + found + " but they already exist");
         }
         this.aliases = new ArrayList<>();
-        this.aliases.addAll(List.of(aliases));
+        this.aliases.addAll(Arrays.asList(aliases));
         return this;
     }
 

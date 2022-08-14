@@ -15,6 +15,7 @@ import org.bukkit.plugin.Plugin;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 public final class LanternRegistry extends Command implements PluginIdentifiableCommand {
 
@@ -47,7 +48,8 @@ public final class LanternRegistry extends Command implements PluginIdentifiable
             return true;
         }
 
-        if (sender instanceof Player player) {
+        if (sender instanceof Player) {
+            Player player = (Player) sender;
             if (command.hasCooldown()) {
                 if (cooldown.containsKey(player.getUniqueId())) {
                     long secondsLeft = ((cooldown.get(player.getUniqueId()) / 1000) + command.getCooldown()) - (System.currentTimeMillis() / 1000);
@@ -78,10 +80,11 @@ public final class LanternRegistry extends Command implements PluginIdentifiable
         List<String> provided = command.tabComplete(context, alias, args.length - 1);
         if (provided != null) return provided;
 
-        if (sender instanceof Player playerSender) {
-            return Bukkit.getOnlinePlayers().stream().filter(playerSender::canSee).map(HumanEntity::getName).toList();
+        if (sender instanceof Player) {
+            Player playerSender = (Player) sender;
+            return Bukkit.getOnlinePlayers().stream().filter(playerSender::canSee).map(HumanEntity::getName).collect(Collectors.toList());
         }
-        return Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).toList();
+        return Bukkit.getOnlinePlayers().stream().map(HumanEntity::getName).collect(Collectors.toList());
     }
 
     private boolean hasPermission(LanternExecutionContext context) {
